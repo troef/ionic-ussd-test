@@ -8,6 +8,7 @@ import { ListPage } from '../pages/list/list';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
+import { CallNumber } from '@ionic-native/call-number';
 
 @Component({
   templateUrl: 'app.html'
@@ -23,7 +24,8 @@ export class MyApp {
     public platform: Platform,
     public menu: MenuController,
     public statusBar: StatusBar,
-    public splashScreen: SplashScreen
+    public splashScreen: SplashScreen,
+    private callNumber: CallNumber
   ) {
     this.initializeApp();
 
@@ -48,5 +50,23 @@ export class MyApp {
     this.menu.close();
     // navigate to the new page if it is not the current page
     this.nav.setRoot(page.component);
+  }
+
+  enableWissel(): void {
+    this.callNumber.callNumber("*31#", true)
+      .then(res => console.log('Launched dialer!', res))
+      .catch(err => console.log('Error launching dialer', err));
+  }
+
+  disableWissel(): void {
+    this.callNumber.callNumber("#31#", true)
+      .then(res => console.log('Launched dialer!', res))
+      .catch(err => console.log('Error launching dialer', err));
+  }
+
+  wisselState(): void {
+    this.callNumber.callNumber("*#31#", true)
+      .then(res => console.log('Launched dialer!', res))
+      .catch(err => console.log('Error launching dialer', err));
   }
 }

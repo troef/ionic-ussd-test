@@ -11,6 +11,25 @@
       <button ion-item *ngFor="let p of pages" (click)="openPage(p)">
         {{p.title}}
       </button>
+
+      <a button icon-start ion-button full (click)="enableWissel()">
+        <ion-icon name="call"></ion-icon>
+        <i class="icon ion-ios-telephone"></i>
+        <strong>Enable</strong>
+      </a>
+
+      <a button icon-start ion-button full (click)="disableWissel()">
+        <ion-icon name="call"></ion-icon>
+        <i class="icon ion-ios-telephone"></i>
+        <strong>Disable</strong>
+      </a>
+
+      <a button icon-start ion-button full (click)="wisselState()">
+        <ion-icon name="call"></ion-icon>
+        <i class="icon ion-ios-telephone"></i>
+        <strong>State</strong>
+      </a>
+
     </ion-list>
   </ion-content>
 
